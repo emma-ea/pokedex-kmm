@@ -1,9 +1,7 @@
-val ksp_version = ""
-
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization") version "1.7.20"
     id("com.android.library")
-    id("com.google.devtools.ksp")
 }
 
 kotlin {
@@ -25,16 +23,19 @@ kotlin {
         val koinVersion = "3.2.0"
         val commonMain by getting {
             dependencies {
-                // network
+                // ktor
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-cio:$ktorVersion")
+                // serialization
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4-native-mt")
                 // logging
-                implementation("io.github.aakira:napier:$napierVersion")
+                api("io.github.aakira:napier:$napierVersion")
                 // di
-                implementation("io.insert-koin:koin-core:$koinVersion")
+                api("io.insert-koin:koin-core:$koinVersion")
             }
         }
         val commonTest by getting {
@@ -46,7 +47,7 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("io.insert-koin:koin-android:$koinVersion")
+                api("io.insert-koin:koin-android:$koinVersion")
             }
         }
         val androidTest by getting
