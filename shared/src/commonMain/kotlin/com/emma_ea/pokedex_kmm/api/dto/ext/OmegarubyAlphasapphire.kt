@@ -9,10 +9,6 @@ import kotlinx.serialization.Serializable
 data class OmegarubyAlphasapphire(
     @SerialName("front_default")
     val frontDefault: String,
-    @SerialName("front_female")
-    val frontFemale: @Contextual Any? = null,
     @SerialName("front_shiny")
     val frontShiny: String,
-    @SerialName("front_shiny_female")
-    val frontShinyFemale: @Contextual Any? = null
 )

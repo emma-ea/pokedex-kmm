@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.emma_ea.pokedex_kmm.android.viewmodel.MainScreenViewModel
 import com.emma_ea.pokedex_kmm.api.dto.PokemonModel
+import com.emma_ea.pokedex_kmm.model.Pokemon
 import com.emma_ea.pokedex_kmm.usecase.FetchPokemonsUsecase
 
 @Composable
@@ -27,7 +28,7 @@ fun MainScreen(
 }
 
 @Composable
-fun BuildPokemons(pokemons: List<PokemonModel>) {
+fun BuildPokemons(pokemons: List<Pokemon>) {
     for (pokemon in pokemons) {
         Text(pokemon.name)
     }

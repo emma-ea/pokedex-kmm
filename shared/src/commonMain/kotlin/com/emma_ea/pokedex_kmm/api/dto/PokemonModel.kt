@@ -8,8 +8,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@OptIn(ExperimentalSerializationApi::class)
-@Serializable(with = DynamicLookupSerializer::class)
+@Serializable
 data class PokemonModel(
     @SerialName("abilities")
     val abilities: List<Ability>,
@@ -21,8 +20,6 @@ data class PokemonModel(
     val gameIndices: List<GameIndice>,
     @SerialName("height")
     val height: Int,
-    @SerialName("held_items")
-    val heldItems: List<@Contextual Any>? = null,
     @SerialName("id")
     val id: Int,
     @SerialName("is_default")
@@ -35,8 +32,6 @@ data class PokemonModel(
     val name: String,
     @SerialName("order")
     val order: Int,
-    @SerialName("past_types")
-    val pastTypes: List<@Contextual Any>? = null,
     @SerialName("species")
     val species: Species,
     @SerialName("sprites")

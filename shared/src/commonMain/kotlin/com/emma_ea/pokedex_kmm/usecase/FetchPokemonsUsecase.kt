@@ -10,7 +10,9 @@ class FetchPokemonsUsecase : KoinComponent {
 
     private val repo: Repository by inject()
 
-    suspend fun invoke(): List<Pokemon> =
-        repo.allPokemons()
+    suspend fun invoke(): List<Pokemon> {
+        return repo.allPokemons()
+    }
+
 
 }

@@ -43,7 +43,9 @@ class PokemonRDSImpl(
 
             data.results.forEach {
                 val res = getPokemonModel(it.url)
-                allPokemons.add(Pokemon(res.id, res.name))
+                val pokemon = Pokemon(res.id, res.name)
+                allPokemons.add(pokemon)
+                print(pokemon)
             }
         }
 
