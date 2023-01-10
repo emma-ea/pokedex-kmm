@@ -29,7 +29,9 @@ fun MainScreen(
 
 @Composable
 fun BuildPokemons(pokemons: List<Pokemon>) {
-    for (pokemon in pokemons) {
-        Text(pokemon.name)
+    LazyColumn {
+        items(pokemons.count()) { index ->
+            Text(pokemons[index].name)
+        }
     }
 }

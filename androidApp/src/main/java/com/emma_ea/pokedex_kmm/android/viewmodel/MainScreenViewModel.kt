@@ -6,6 +6,7 @@ import com.emma_ea.pokedex_kmm.api.dto.PokemonModel
 import com.emma_ea.pokedex_kmm.model.Pokemon
 import com.emma_ea.pokedex_kmm.usecase.FetchPokemonsUsecase
 import io.github.aakira.napier.Napier
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,8 +20,12 @@ class MainScreenViewModel(
     private val _pokemons = MutableStateFlow<List<Pokemon>>(emptyList())
     val pokemons = _pokemons
 
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
+        Napier.e(throwable.localizedMessage ?: "something went wrong", throwable)
+    }
+
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(errorHandler) {
             getPokemons()
         }
     }
