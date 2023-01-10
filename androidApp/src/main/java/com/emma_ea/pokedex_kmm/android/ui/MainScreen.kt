@@ -16,14 +16,14 @@ import com.emma_ea.pokedex_kmm.usecase.FetchPokemonsUsecase
 
 @Composable
 fun MainScreen(
-    viewModel: MainScreenViewModel
+    pokemons: List<Pokemon>
 ) {
     Column (
         modifier = Modifier.fillMaxSize(),
     ) {
         Text("data")
         Spacer(Modifier.height(100.dp))
-        BuildPokemons(viewModel.pokemons.value)
+        BuildPokemons(pokemons)
     }
 }
 

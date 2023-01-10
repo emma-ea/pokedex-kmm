@@ -25,7 +25,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen(model)
+                    val pokemons = model.pokemons.value;
+                    MainScreen(pokemons)
                 }
             }
         }
