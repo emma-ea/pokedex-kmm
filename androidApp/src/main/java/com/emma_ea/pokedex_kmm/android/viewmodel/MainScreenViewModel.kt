@@ -31,7 +31,7 @@ class MainScreenViewModel(
     }
 
     private suspend fun getPokemons() {
-        _pokemons.value = fetchPokemons()
+       //  _pokemons.value = fetchPokemons()
         Napier.v("[fetching pokemons]")
     }
 
