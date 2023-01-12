@@ -1,12 +1,10 @@
 package com.emma_ea.pokedex_kmm.android.ui
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,16 +21,19 @@ fun MainScreen(
     Column (
         modifier = Modifier.fillMaxSize(),
     ) {
-        Text("data")
-        Spacer(Modifier.height(100.dp))
         BuildPokemons(pokemons)
     }
 }
 
 @Composable
 fun BuildPokemons(pokemons: List<Pokemon>) {
-    LazyVerticalGrid(columns = GridCells.Fixed(3)) {
-        items(pokemons.count()) { index ->
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(8.dp),
+        verticalArrangement = Arrangement.spacedBy(5.dp),
+        horizontalArrangement = Arrangement.spacedBy(5.dp)
+    ) {
+        items(pokemons) { pokemon ->
             PokemonCard()
         }
     }

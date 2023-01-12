@@ -50,3 +50,6 @@ fun MyApplicationTheme(
         content = content
     )
 }
+
+const val turquoiseColor = 0xff1abc9c
+const val greenSeaColor = 0xff16a085
